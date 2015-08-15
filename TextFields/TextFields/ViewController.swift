@@ -15,11 +15,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textField2: UITextField!
     @IBOutlet weak var textField3: UITextField!
     @IBOutlet weak var characterCountLabel: UILabel!
+    @IBOutlet weak var editSwitch: UISwitch!
     
     // Text Field Delegate objects
     let emojiDelegate = EmojiTextFieldDelegate()
     let colorizerDelegate = ColorizerTextFieldDelegate()
     let randomColorDelegate = RandomColorTextFieldDelegate()
+    let zipCodeDelegate = ZipCodeTextFieldDelegate()
+    let cashDelegate = CashTextFieldDelegate()
     
     // Life Cycle Methods
     
@@ -30,9 +33,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.characterCountLabel.hidden = true
         
         // Set the three delegates
-        self.textField1.delegate = emojiDelegate
-        self.textField2.delegate = colorizerDelegate
-        self.textField3.delegate = randomColorDelegate
+        self.textField1.delegate = zipCodeDelegate
+        self.textField2.delegate = cashDelegate
+        self.textField3.delegate = self
     }
 
     
@@ -51,7 +54,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.characterCountLabel.text = String(newText.length)
         
         // returning true gives the text field permission to change its text
-        return true;
+        return editSwitch.on;
+    }
+    
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        return editSwitch.on
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        let newText: NSString = textField.text!
+        if !editSwitch.on {
+            textField.text = ""
+            characterCountLabel.hidden = (newText.length == 0)
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return editSwitch.on
     }
 }
 
