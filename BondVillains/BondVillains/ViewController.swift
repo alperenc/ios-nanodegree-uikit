@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     // Get ahold of some villains, for the table
     // This is an array of Villain instances
     let allVillains = Villain.allVillains
