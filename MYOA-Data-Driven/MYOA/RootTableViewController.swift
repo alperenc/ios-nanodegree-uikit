@@ -19,11 +19,11 @@ class RootTableViewController: UITableViewController {
         super.viewDidLoad()
 
         // Initialize the Adventures
-        let adventurePlistPaths = NSBundle.mainBundle().pathsForResourcesOfType("plist", inDirectory: nil) as! [String]
+        let adventurePlistPaths = NSBundle.mainBundle().pathsForResourcesOfType("plist", inDirectory: nil) 
         
         for plistPath in adventurePlistPaths {
             
-            if plistPath.lastPathComponent != "Info.plist" {
+            if (plistPath as NSString).lastPathComponent != "Info.plist" {
                 if let adventureDictionary = NSDictionary(contentsOfFile: plistPath) as? [String : AnyObject] {
                     adventures.append(Adventure(dictionary: adventureDictionary))
                 }
@@ -44,11 +44,11 @@ class RootTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell = self.tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
-        var adventure = adventures[indexPath.row]
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell")!
+        let adventure = adventures[indexPath.row]
         cell.textLabel!.text = adventure.credits.title
         cell.detailTextLabel!.text = adventure.credits.author
-        var imageName = adventure.credits.imageName
+        let imageName = adventure.credits.imageName
         cell.imageView!.image = UIImage(named: imageName!)
                 
         return cell

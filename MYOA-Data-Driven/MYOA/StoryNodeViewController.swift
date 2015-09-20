@@ -36,22 +36,29 @@ class StoryNodeViewController: UIViewController, UITableViewDelegate, UITableVie
         // MARK: - Table - Place Holder Implementation
     
         func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-            //TODO: Implement to push the next story node.
+            // Get a StoryNodeController from the Storyboard
+            let storyNodeController = self.storyboard!.instantiateViewControllerWithIdentifier("StoryNodeViewController")as! StoryNodeViewController
+            
+            // Set the next story node
+            storyNodeController.storyNode = storyNode.storyNodeForIndex(indexPath.row)
+            
+            // Push the new controller onto the stack
+            self.navigationController!.pushViewController(storyNodeController, animated: true)
     
     }
     
     
         func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             // TODO: Return the number of prompts in the storyNode (The 2 is just a place holder)
-            return 2
+            return storyNode.promptCount()
         }
     
         func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
             //TODO: Dequeue a cell and populate it with text from the correct prompt.
             
-            let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell")!
     
-            cell.textLabel!.text = "Place holder prompt"
+            cell.textLabel!.text = storyNode.promptForIndex(indexPath.row)
             
             return cell
         }
@@ -60,7 +67,7 @@ class StoryNodeViewController: UIViewController, UITableViewDelegate, UITableVie
     // MARK: - Actions
     
     @IBAction func restartStory() {
-        let controller = self.navigationController!.viewControllers[1] as! UIViewController
+        let controller = self.navigationController!.viewControllers[1] 
         self.navigationController?.popToViewController(controller, animated: true)
     }
     
