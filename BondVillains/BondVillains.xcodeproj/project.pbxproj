@@ -14,6 +14,7 @@
 		4D04CC0C1A1D1E5700FAB0D8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D04CC0A1A1D1E5700FAB0D8 /* LaunchScreen.xib */; };
 		4D04CC181A1D1E5700FAB0D8 /* BondVillainsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D04CC171A1D1E5700FAB0D8 /* BondVillainsTests.swift */; };
 		4D04CC221A1D261800FAB0D8 /* Villain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D04CC211A1D261800FAB0D8 /* Villain.swift */; };
+		C71A8C931BAE89B000F389B8 /* VillainDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A8C921BAE89B000F389B8 /* VillainDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		4D04CC161A1D1E5700FAB0D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D04CC171A1D1E5700FAB0D8 /* BondVillainsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondVillainsTests.swift; sourceTree = "<group>"; };
 		4D04CC211A1D261800FAB0D8 /* Villain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Villain.swift; sourceTree = "<group>"; };
+		C71A8C921BAE89B000F389B8 /* VillainDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VillainDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				4D04CC031A1D1E5700FAB0D8 /* ViewController.swift */,
+				C71A8C921BAE89B000F389B8 /* VillainDetailViewController.swift */,
 				4D04CC211A1D261800FAB0D8 /* Villain.swift */,
 				4D04CC011A1D1E5700FAB0D8 /* AppDelegate.swift */,
 				4D04CC051A1D1E5700FAB0D8 /* Main.storyboard */,
@@ -159,7 +162,8 @@
 		4D04CBF41A1D1E5700FAB0D8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Udacity;
 				TargetAttributes = {
 					4D04CBFB1A1D1E5700FAB0D8 = {
@@ -218,6 +222,7 @@
 				4D04CC041A1D1E5700FAB0D8 /* ViewController.swift in Sources */,
 				4D04CC021A1D1E5700FAB0D8 /* AppDelegate.swift in Sources */,
 				4D04CC221A1D261800FAB0D8 /* Villain.swift in Sources */,
+				C71A8C931BAE89B000F389B8 /* VillainDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +284,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -342,6 +348,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BondVillains/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "UD.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -352,6 +359,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BondVillains/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "UD.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -370,6 +378,7 @@
 				);
 				INFOPLIST_FILE = BondVillainsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "UD.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BondVillains.app/BondVillains";
 			};
@@ -385,6 +394,7 @@
 				);
 				INFOPLIST_FILE = BondVillainsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "UD.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BondVillains.app/BondVillains";
 			};
@@ -409,6 +419,7 @@
 				4D04CC1D1A1D1E5700FAB0D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4D04CC1E1A1D1E5700FAB0D8 /* Build configuration list for PBXNativeTarget "BondVillainsTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +428,7 @@
 				4D04CC201A1D1E5700FAB0D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
